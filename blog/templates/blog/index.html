@@ -1,9 +1,60 @@
 {% extends "base.html" %}
-
-{% block pageTitle %}
-My Blog
-{% endblock pageTitle %}
-
+{% load static %}
+ {% block pageTitle %} My Blog
+ {% endblock pageTitle %}
+ {% block css_files %}
+ <link rel="stylesheet" href="{% static "blog/index.css" %}">
+ {% endblock css_files %}
 {% block contents %}
-<h1>This is the real content i have for you</h1>
+<header id="main-nav">
+  <h1>
+    <a href="">Oluwatosin's Blog</a>
+  </h1>
+  <nav>
+    <a href="">All Posts</a>
+  </nav>
+</header>
+
+<section id="welcome">
+  <header>
+    <img src="{% static "blog/images/Tosin.jpg" %}" alt="Oluwatosin - The Author Of This Blog" width="600" height="600" />
+    <h2>OLUWATOSIN'S BLOG</h2>
+  </header>
+  <p>Hi, I am Tosin and I love to blog about tech and the world!</p>
+</section>
+
+<section id="latest-posts">
+  <h2>My Latest Thoughts</h2>
+  <ul>
+    <li>
+      <article class="post">
+        <a href="">
+          <img src="{% static "blog/images/greeec.jpg" %}" alt="Vacation" />
+          <div class="post__content">
+            <h3>Traveling to Greece</h3>
+            <p>
+              From having a passport that makes it hard for me to travel around
+              the woorld to getting a visa that gives me the chance is so
+              amazing
+            </p>
+          </div>
+        </a>
+      </article>
+    </li>
+  </ul>
+</section>
+
+<section id="about">
+  <h2>What I Do</h2>
+  <p>
+    I love programming, I love to help others and I enjoy exploring new
+    technologies in general!
+  </p>
+  <p>
+    My goal is to keep on growing as a developer - and i wish to improve my
+    skills in both the frontend and backend aspect of webdevelopment and become
+    a full stack developer
+  </p>
+</section>
+
 {% endblock contents %}
