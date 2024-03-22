@@ -1,19 +1,15 @@
 {% extends "base.html" %}
 {% load static %}
- {% block pageTitle %} My Blog
+
+ {% block pageTitle %}
+       My Blog
  {% endblock pageTitle %}
  {% block css_files %}
+ <link rel="stylesheet" href="{% static "blog/includes/post.css" %}">
  <link rel="stylesheet" href="{% static "blog/index.css" %}">
  {% endblock css_files %}
+
 {% block contents %}
-<header id="main-nav">
-  <h1>
-    <a href="">Oluwatosin's Blog</a>
-  </h1>
-  <nav>
-    <a href="">All Posts</a>
-  </nav>
-</header>
 
 <section id="welcome">
   <header>
@@ -26,21 +22,10 @@
 <section id="latest-posts">
   <h2>My Latest Thoughts</h2>
   <ul>
-    <li>
-      <article class="post">
-        <a href="">
-          <img src="{% static "blog/images/greeec.jpg" %}" alt="Vacation" />
-          <div class="post__content">
-            <h3>Traveling to Greece</h3>
-            <p>
-              From having a passport that makes it hard for me to travel around
-              the woorld to getting a visa that gives me the chance is so
-              amazing
-            </p>
-          </div>
-        </a>
-      </article>
-    </li>
+    {% for post in my_posts %}
+    
+   {% include "blog/includes/post.html" %}
+   {% endfor %}
   </ul>
 </section>
 
