@@ -8,8 +8,21 @@
     <title>{% block pageTitle %}{% endblock pageTitle %}</title>
     <link rel="stylesheet" href="{% static "app.css" %}">
     {% block css_files %}{% endblock css_files %}
+    <link rel="shortcut icon" href="{% static "blog/images/favicon.svg" %}" type="image/x-icon">
 </head>
 <body>
-    {% block contents %}{% endblock contents %}
+     {% comment %} header since it doesnt change and allows it to be fixed in there instead of including {% endcomment %}
+    <header id="main-nav">
+        <h1>
+          <a href="{% url "starting-page" %}">Oluwatosin's Blog</a>
+        </h1>
+        <nav>
+          <a href="{% url "posts-page" %}">All Posts</a>
+        </nav>
+      </header>
+
+    {% block contents %}
+
+    {% endblock contents %}
 </body>
 </html>
